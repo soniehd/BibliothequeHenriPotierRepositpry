@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_home"
+            android:checked="true"
+            android:icon="@mipmap/home"
+            android:title="@string/nav_item_home" />
+        <item
+            android:id="@+id/navigation_item_panier"
+            android:checked="true"
+            android:icon="@mipmap/panier"
+            android:title="@string/nav_item_panier" />
+        <item
+            android:id="@+id/navigation_item_promotions"
+            android:icon="@mipmap/sale"
+            android:title="@string/nav_item_promotions" />
+        <item
+            android:id="@+id/navigation_item_apropos"
+            android:icon="@mipmap/information"
+            android:title="@string/nav_item_apropos" />
+    </group>
+
+</menu>
