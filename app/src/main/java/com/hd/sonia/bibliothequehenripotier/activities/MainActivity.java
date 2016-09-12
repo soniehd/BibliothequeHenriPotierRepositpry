@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -15,6 +18,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.hd.sonia.bibliothequehenripotier.R;
+import com.hd.sonia.bibliothequehenripotier.Views.BookAdapter;
+import com.hd.sonia.bibliothequehenripotier.models.Book;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -30,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle drawerToggle;
     @ViewById(R.id.navigation_view)
     NavigationView navigationView;
+    @ViewById(R.id.recyclerView)
+    RecyclerView recyclerView;
+
     @AfterViews
     void nextActivity() {
         setSupportActionBar(toolbar);
@@ -56,11 +64,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+
+        recyclerView.setAdapter(new BookAdapter(getIntent().<Book>getParcelableArrayListExtra("myBooks")));
+
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // synchroniser le drawerToggle après la restauration via onRestoreInstanceState
+
         drawerToggle.syncState();
     }
     @Override
@@ -69,22 +81,4 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    private void afficherCacherToolbar() {
-        if(toolbar.getAlpha() == 1){ //si alpha==1 alors elle est affichee
-
-            //cacher
-            toolbar.animate()
-                    .alpha(0) //la rendre invisible
-                    .translationY(-toolbar.getHeight()) //la déplacer vers le haut
-                    .start();
-        }
-        else{ //si alpha==0 alors elle est cachee
-
-            //afficher
-            toolbar.animate()
-                    .alpha(1) //la rendre visible
-                    .translationY(0) //retour à la position d'origine
-                    .start();
-        }
-    }
 }

@@ -16,10 +16,10 @@
         android:layout_height="match_parent"
         >
 
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -28,7 +28,14 @@
                 android:background="@color/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
-        </RelativeLayout>
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.hd.sonia.bibliothequehenripotier.fragments.HomeFragment"
+                android:id="@+id/containerFragment"/>
+
+        </LinearLayout>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/navigation_view"

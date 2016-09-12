@@ -14,6 +14,6 @@ import retrofit2.http.GET;
 
 public interface BookService {
     @GET("/books")
-    Call<List<Book>> loadQuestions();
+    Call<List<Book>> loadBooks();
 }
 

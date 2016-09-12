@@ -16,7 +16,7 @@ public class Book implements Parcelable {
     @SerializedName("title")
     private String title;
     @SerializedName("price")
-    private Double price;
+    private String price;
     @SerializedName("cover")
     private String cover;
 
@@ -24,6 +24,7 @@ public class Book implements Parcelable {
         isbn = in.readString();
         title = in.readString();
         cover = in.readString();
+        price = in.readString();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -54,11 +55,11 @@ public class Book implements Parcelable {
         this.title = title;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -80,5 +81,6 @@ public class Book implements Parcelable {
         dest.writeString(isbn);
         dest.writeString(title);
         dest.writeString(cover);
+        dest.writeString(price);
     }
 }

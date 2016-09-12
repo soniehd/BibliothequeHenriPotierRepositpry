@@ -7,10 +7,7 @@ import android.util.Log;
 
 import com.hd.sonia.bibliothequehenripotier.R;
 import com.hd.sonia.bibliothequehenripotier.models.Book;
-import com.hd.sonia.bibliothequehenripotier.models.Offer;
-import com.hd.sonia.bibliothequehenripotier.models.Offers;
 import com.hd.sonia.bibliothequehenripotier.services.BookService;
-import com.hd.sonia.bibliothequehenripotier.services.OffersService;
 import com.hd.sonia.bibliothequehenripotier.services.ServiceGenerator;
 import com.hd.sonia.bibliothequehenripotier.utils.MyAlertDialog;
 
@@ -33,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     @AfterViews
     void nextActivity() {
         BookService books = ServiceGenerator.getClient().create(BookService.class);
-        Call<List<Book>> callBook = books.loadQuestions();
+        Call<List<Book>> callBook = books.loadBooks();
         callBook.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
