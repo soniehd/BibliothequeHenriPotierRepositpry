@@ -31,19 +31,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
-            android:padding="20dp"
-            android:textColor="#333"
-            android:textSize="9sp" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:text="gg"/>
+
         <TextView
             android:id="@+id/price"
             style="@style/Base.TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
-            android:padding="20dp"
-            android:textColor="#333"
-            android:textSize="9sp" />
-        </LinearLayout>
+            android:textColor="@color/gray"
+            android:textSize="10sp"
+            android:text="tt"
+            android:layout_gravity="left"/>
+            <Button
+                android:id="@+id/Button03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:text="@string/buybutton"/>
+
+       </LinearLayout>
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

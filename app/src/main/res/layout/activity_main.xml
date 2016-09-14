@@ -29,11 +29,17 @@
                 android:minHeight="?attr/actionBarSize"
                 app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
-            <fragment
+         <!--   <fragment
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:name="com.hd.sonia.bibliothequehenripotier.fragments.HomeFragment"
                 android:id="@+id/containerFragment"/>
+                -->
+
+            <FrameLayout
+                android:id="@+id/containerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 

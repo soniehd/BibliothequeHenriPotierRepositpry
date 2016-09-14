@@ -1,10 +1,12 @@
 package com.hd.sonia.bibliothequehenripotier.activities;
 
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.hd.sonia.bibliothequehenripotier.R;
 import com.hd.sonia.bibliothequehenripotier.Views.BookAdapter;
+import com.hd.sonia.bibliothequehenripotier.fragments.HomeFragment;
 import com.hd.sonia.bibliothequehenripotier.models.Book;
 
 import org.androidannotations.annotations.AfterViews;
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+       navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 item.setChecked(true);
@@ -63,11 +66,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.containerFragment, new HomeFragment());
+        fragmentTransaction.commit();
 
+ /*
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
         recyclerView.setAdapter(new BookAdapter(getIntent().<Book>getParcelableArrayListExtra("myBooks")));
-
+*/
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
