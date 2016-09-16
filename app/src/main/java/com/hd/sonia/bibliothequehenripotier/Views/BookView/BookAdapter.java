@@ -1,6 +1,5 @@
-package com.hd.sonia.bibliothequehenripotier.Views;
+package com.hd.sonia.bibliothequehenripotier.Views.BookView;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hd.sonia.bibliothequehenripotier.R;
-import com.hd.sonia.bibliothequehenripotier.activities.MainActivity;
 import com.hd.sonia.bibliothequehenripotier.fragments.DetailsLivreFragment;
 import com.hd.sonia.bibliothequehenripotier.models.Book;
 

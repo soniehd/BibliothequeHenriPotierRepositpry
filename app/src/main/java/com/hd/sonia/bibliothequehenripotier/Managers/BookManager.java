@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.hd.sonia.bibliothequehenripotier.Callbacks.BooksCallBack;
 import com.hd.sonia.bibliothequehenripotier.R;
 import com.hd.sonia.bibliothequehenripotier.activities.MainActivity;
 import com.hd.sonia.bibliothequehenripotier.activities.MainActivity_;
@@ -24,41 +25,29 @@ import retrofit2.Response;
 /**
  * Created by Sonia on 12/09/2016.
  */
-public  class BookManager {
+public class BookManager implements Callback<List<Book>> {
 
-   static ArrayList<Book>  booksList;
+    public BooksCallBack booksCallBack;
 
-    public static List<Book> getBooks(final Context context){
+    public void  getBooks(){
 
         BookService books = ServiceGenerator.getClient().create(BookService.class);
         Call<List<Book>> callBook = books.loadBooks();
-        callBook.enqueue(new Callback<List<Book>>() {
-            @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if (response.isSuccessful()) {
-                    booksList = new ArrayList<Book>();
-                    booksList = (ArrayList<Book>) response.body();
-                    Log.d("success", "Number of books received: " + booksList.get(0).getTitle());
-                    Intent intent = new Intent(context, MainActivity_.class);
-                    intent.putParcelableArrayListExtra("myBooks", booksList);
-                    context.startActivity(intent);
+        callBook.enqueue(this);
+    }
+
+    @Override
+    public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+
+        ArrayList<Book> booksList = null;
+        booksList = (ArrayList<Book>) response.body();
+        booksCallBack.onResponse(booksList);
+
+    }
 
 
-                } else {
-                    MyAlertDialog.showLocationDialog(context.getString(R.string.title_error_server),context.getString(R.string.message_error_server),context);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
-
-                MyAlertDialog.showLocationDialog(context.getString(R.string.title_error_server), context.getString(R.string.message_error_server), context);
-
-                Log.d("Error", t.getMessage());
-            }
-        });
-
-        return booksList;
-
+    @Override
+    public void onFailure(Call<List<Book>> call, Throwable t) {
+        booksCallBack.onFailure(call,t);
     }
 }

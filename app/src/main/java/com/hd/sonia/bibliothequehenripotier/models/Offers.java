@@ -6,13 +6,15 @@ import java.util.List;
  * Created by mac on 11/09/2016.
  */
 public class Offers {
-    private List<Offers> offers;
+    private List<Offer> offers;
 
-    public List<Offers> getOffers() {
+    public List<Offer> getOffers() {
         return offers;
     }
 
-    public void setOffers(List<Offers> offers) {
+    public void setOffers(List<Offer> offers) {
         this.offers = offers;
     }
+
+
 }

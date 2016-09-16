@@ -1,7 +1,6 @@
-package com.hd.sonia.bibliothequehenripotier.Views;
+package com.hd.sonia.bibliothequehenripotier.Views.BookView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,18 +30,18 @@ public class BookViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         imageView = (ImageView) itemView.findViewById(R.id.image);
         this.context = context;
         itemView.setOnClickListener(this);
+
     }
 
     public void bind(Book myBook){
         titreViewView.setText(myBook.getTitle());
-
         priceViewView.setText(myBook.getPrice()+"€");
         Picasso.with(imageView.getContext()).load(myBook.getCover()).centerCrop().fit().into(imageView);
     }
 
     @Override
     public void onClick(View v) {
-        this.itemClickListner.onItemClick(v,getAdapterPosition());
+            this.itemClickListner.onItemClick(v, getAdapterPosition());
     }
 
     void setItemClickListner(ItemClickListener ic){

@@ -1,4 +1,4 @@
-package com.hd.sonia.bibliothequehenripotier.Views;
+package com.hd.sonia.bibliothequehenripotier.Views.BookView;
 
 import android.view.View;
 
