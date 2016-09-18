@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        getActivity().setTitle("Home");
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         recyclerView.setAdapter(new BookAdapter(getActivity().getIntent().<Book>getParcelableArrayListExtra("myBooks"),getActivity()));

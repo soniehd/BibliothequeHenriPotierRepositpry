@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for individual news entries in a list -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvSingleUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- Icon shown next to the title/subtitle -->
+    <ImageView
+        android:id="@+id/news_entry_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:padding="3dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp">
+    <!-- Title of the news entry -->
+    <TextView
+        android:id="@+id/news_entry_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/news_entry_icon"
+        android:layout_alignTop="@id/news_entry_icon"
+        android:layout_margin="5dp"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginRight="16dp" />
-
-            <TextView
-                android:id="@+id/titre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_toRightOf="@id/image" />
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/titre"
-                android:layout_toRightOf="@id/image" />
-
-            <TextView
-                android:id="@+id/tvEmailId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/price"
-                android:layout_toRightOf="@id/image"/>
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
+    <!-- Subtitle contains author and date -->
+    <TextView
+        android:id="@+id/news_entry_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/news_entry_title"
+        android:layout_below="@id/news_entry_title"
+        android:textSize="12sp" />
 
 </RelativeLayout>

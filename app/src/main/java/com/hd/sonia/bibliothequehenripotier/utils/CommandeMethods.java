@@ -15,15 +15,24 @@ public class CommandeMethods {
         double offerMinus = 0;
         double offerPercentage = 0;
         double offerSlice = 0;
-        for (Offer offer:offers.getOffers()) {
-            switch (offer.type){
-                case "percenrage": offerPercentage = TotalCommande * offer.value;break;
-                case "minus": offerMinus = TotalCommande - offer.value;break;
-                case "slice" : offerSlice = (TotalCommande%offer.sliceValue)*offer.value;break;
-            }
+        if(offers != null) {
+            for (Offer offer : offers.getOffers()) {
+                switch (offer.type) {
+                    case "percenrage":
+                        offerPercentage = TotalCommande * offer.value;
+                        break;
+                    case "minus":
+                        offerMinus = TotalCommande - offer.value;
+                        break;
+                    case "slice":
+                        offerSlice = ((int) TotalCommande / offer.sliceValue) * offer.value;
+                        break;
+                }
 
+            }
+            return HighValue(offerMinus, offerPercentage, offerSlice);
         }
-        return HighValue(offerMinus, offerPercentage, offerSlice);
+        return 0;
     }
 
     public static double HighValue(double offerMinus,double offerPercentage,double offerSlice){
@@ -37,10 +46,12 @@ public class CommandeMethods {
 
     public static double getTotalBooks(List<Book> books){
         double total = 0;
-        for (Book book:books) {
-            total+=Double.parseDouble(book.getPrice());
+        if(books != null) {
+            for (Book book : books) {
+                total += Double.parseDouble(book.getPrice());
+            }
         }
-        return  total;
+        return total;
     }
     public static String getIsbns(List<Book> books)
     {   String isbns="";

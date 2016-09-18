@@ -48,6 +48,7 @@ public class SplashActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, MainActivity_.class);
                     intent.putParcelableArrayListExtra("myBooks", booksList);
                     startActivity(intent);
+                    finish();
 
                 }
                 else {

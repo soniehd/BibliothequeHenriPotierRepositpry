@@ -46,6 +46,7 @@ public class DetailsLivreFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_details_livre, container, false);
+        getActivity().setTitle("Book");
         description =  (TextView) view.findViewById(R.id.titre);
         price = (TextView)view.findViewById(R.id.price);
         imageView = (ImageView) view.findViewById(R.id.imageLivre);

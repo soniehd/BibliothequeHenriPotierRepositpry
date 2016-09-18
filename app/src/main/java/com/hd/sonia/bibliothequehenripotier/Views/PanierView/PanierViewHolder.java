@@ -14,30 +14,10 @@ import com.squareup.picasso.Picasso;
 /**
  * Created by Sonia on 12/09/2016.
  */
-public class PanierViewHolder extends RecyclerView.ViewHolder {
+public class PanierViewHolder {
 
-    private TextView titreViewView;
-    private TextView priceViewView;
-    private ImageView imageView;
-
-
-    public PanierViewHolder(View itemView) {
-        super(itemView);
-
-        titreViewView = (TextView) itemView.findViewById(R.id.titre);
-        priceViewView = (TextView) itemView.findViewById(R.id.price);
-       // imageView = (ImageView) itemView.findViewById(R.id.image);
-
-
-
-    }
-
-    public void bind(Book myBook){
-        titreViewView.setText(myBook.getTitle());
-        priceViewView.setText(myBook.getPrice()+"€");
-        //Picasso.with(imageView.getContext()).load(myBook.getCover()).centerCrop().fit().into(imageView);
-    }
-
-
+    public TextView titleView;
+    public TextView subTitleView;
+    public ImageView imageView;
 
 }

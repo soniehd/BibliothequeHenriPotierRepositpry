@@ -19,7 +19,6 @@
             android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:src="@drawable/parisguidetower" />
-
         <TextView
             android:id="@+id/titre"
             style="@style/Base.TextAppearance.AppCompat.Body1"
@@ -28,7 +27,7 @@
             android:background="?android:selectableItemBackground"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="11sp"
+            android:textSize="20sp"
             android:text="gg"/>
 
         <TextView
@@ -38,7 +37,7 @@
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
             android:textColor="@color/gray"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:text="tt"
             android:layout_gravity="left"/>
 

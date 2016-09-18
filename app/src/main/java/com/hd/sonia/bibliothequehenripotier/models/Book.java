@@ -20,6 +20,13 @@ public class Book implements Parcelable {
     @SerializedName("cover")
     private String cover;
 
+    public Book(String isbn, String title, String price, String cover) {
+        this.isbn = isbn;
+        this.title = title;
+        this.price = price;
+        this.cover = cover;
+    }
+
     protected Book(Parcel in) {
         isbn = in.readString();
         title = in.readString();

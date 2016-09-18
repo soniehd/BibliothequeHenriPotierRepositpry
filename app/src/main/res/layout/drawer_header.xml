@@ -11,14 +11,11 @@ android:gravity="bottom">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="12dp"
-        android:textColor="#454545"
+        android:textSize="25dp"
+        android:textColor="@android:color/white"
         android:text="@string/drawer_header_text"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/oie_transparent"/>
+
 </LinearLayout>

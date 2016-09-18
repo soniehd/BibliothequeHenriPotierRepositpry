@@ -12,6 +12,6 @@ import retrofit2.Call;
  * Created by mac on 16/09/2016.
  */
 public interface OffersCallBack {
-    public void onResponse(ArrayList<Book> booksList);
+    public void onResponse(double remise);
     public void onFailure(Call<Offer> call, Throwable t);
 }

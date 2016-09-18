@@ -14,10 +14,10 @@ public final class Offer {
         @SerializedName("value")
         public final long value;
         @SerializedName("sliceValue")
-        public final Long sliceValue;
+        public final long sliceValue;
 
 
-        public Offer(String type, long value, Long sliceValue){
+        public Offer(String type, long value, long sliceValue){
             this.type = type;
             this.value = value;
             this.sliceValue = sliceValue;

@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.hd.sonia.bibliothequehenripotier.R;
 import com.hd.sonia.bibliothequehenripotier.fragments.DetailsCommandeFragment;
 import com.hd.sonia.bibliothequehenripotier.fragments.HomeFragment;
+import com.hd.sonia.bibliothequehenripotier.fragments.HomeFragment_;
+import com.hd.sonia.bibliothequehenripotier.fragments.aproposFragment;
 import com.hd.sonia.bibliothequehenripotier.models.Book;
 
 import org.androidannotations.annotations.AfterViews;
@@ -72,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 if(item.getTitle().equals("Home")){
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.containerFragment, new HomeFragment());
+                    fragmentTransaction.commit();
+                }
+                if(item.getTitle().equals("A propos")){
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.containerFragment, new aproposFragment());
                     fragmentTransaction.commit();
                 }
 
