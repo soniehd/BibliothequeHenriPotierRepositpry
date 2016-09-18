@@ -5,12 +5,11 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.View;
 
 
-import com.hd.sonia.bibliothequehenripotier.activities.MainActivity;
+import com.hd.sonia.bibliothequehenripotier.Views.BookView.RecyclerViewMatcher;
 import com.hd.sonia.bibliothequehenripotier.activities.MainActivity_;
-import com.hd.sonia.bibliothequehenripotier.activities.SplashActivity;
-import com.hd.sonia.bibliothequehenripotier.activities.SplashActivity_;
 import com.hd.sonia.bibliothequehenripotier.models.Book;
 import com.hd.sonia.bibliothequehenripotier.models.Offer;
 import com.hd.sonia.bibliothequehenripotier.models.Offers;
@@ -40,13 +39,14 @@ import static junit.framework.Assert.assertEquals;
 @LargeTest
 public class BookListTest  {
 
-
+    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
+        return new RecyclerViewMatcher(recyclerViewId);
+    }
 
     @Rule
     public ActivityTestRule mActivityRule = new ActivityTestRule<>(
-            MainActivity_.class,true,    // initialTouchMode
+            MainActivity_.class,true,
             false);
-
 
 
 
@@ -86,12 +86,15 @@ public class BookListTest  {
         Intent intent = new Intent();
         intent.putParcelableArrayListExtra("myBooks", bookList);
         mActivityRule.launchActivity(intent);
+        onView(withRecyclerView(R.id.recyclerView).atPosition(0))
+                .check(matches(hasDescendant(withText("Henri Potier à l'école des sorciers"))));
+
         onView(withId(R.id.recyclerView))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+
+        onView(withId(R.id.buybtn)).check(matches(withText(R.string.buy_button_text)));
+
     }
 
-    public void testAddBookButton(){
-
-    }
-
+    
 }

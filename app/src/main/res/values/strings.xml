@@ -12,6 +12,6 @@
     <string name="nav_item_apropos">A propos</string>
     <string name="nav_item_home">Home</string>
     <string name="title_activity_detail_livre">DetailLivreActivity</string>
-    <string name="buybutton">Ajouter au panier</string>
+    <string name="buy_button_text">Ajouter au panier</string>
 
 </resources>

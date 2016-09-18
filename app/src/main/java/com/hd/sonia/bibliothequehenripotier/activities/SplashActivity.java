@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onResponse(ArrayList<Book> booksList) {
 
-                if(booksList != null)
+                if(booksList != null && booksList.size()!=0)
                 {
                     Intent intent = new Intent(context, MainActivity_.class);
                     intent.putParcelableArrayListExtra("myBooks", booksList);
